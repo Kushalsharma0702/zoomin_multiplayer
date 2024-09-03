@@ -1,0 +1,85 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f4f4f4;
+    margin: 0;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 20px;
+    width: 80%;
+    max-width: 1200px;
+}
+
+.gift-card {
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: relative;
+    width: 150px;
+    height: 150px;
+    transition: transform 0.3s ease-in-out;
+    overflow: visible;  /* Allow elements to overflow */
+}
+
+.gift-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.gift-card h3 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    margin: 0;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 5px;
+    box-sizing: border-box;
+}
+
+.video-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.1);
+    width: 150px;  /* Start with the size of the gift card */
+    height: 150px; /* Start with the size of the gift card */
+    display: none;
+    transition: transform 0.3s ease-in-out, width 0.3s ease-in-out, height 0.3s ease-in-out;
+    z-index: 100;
+}
+
+.video-container iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.gift-card:hover .video-container {
+    display: block;
+    width: 500px;  /* Expand beyond the gift card */
+    height: 300px; /* Expand beyond the gift card */
+    transform: translate(-50%, -50%) scale(1); /* Full size and center */
+}
+
+.gift-card:hover img,
+.gift-card:hover h3 {
+    display: none;
+}
+
+.gift-card:hover {
+    z-index: 10;
+    position: relative;
+}
